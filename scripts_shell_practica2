@@ -1,0 +1,20 @@
+1. ps aux | grep -n alumno
+2. ps aux | grep -c alumno
+3. ps aux | grep -v alumno
+4. find -type f | grep -il alumno
+5. grep -n alumno passwd WRONG → grep -w ^alumno /etc/paswd   
+6. ps aux | tail -n+2 | grep -ow ‘[:alpha:]’
+7. ps aux | tail -n+2 | grep -ow ‘[[:alpha:]]\{4,4\}’ | sort DUDA: POR QUÉ \{4,4\} ENTIENDO LOS \ PERO NO POR QUÉ ESO DETERMINA LA LONGITUD → DIAPOSITIVA 6
+8. ps aux | tail -n+2 | grep -ow ‘[[:alpha:]]\{4,4\}’ | sort | column
+9. ps aux | grep -ow ‘[0-9]*’
+10. ps aux | grep -ow ‘[0-9]*’ | sort -nr
+11. ps aux | tail -n+2 | tr -s ‘ ‘ | sort -n -k6,6 (EN LAS SOLUCIONES PONE QUE NO ES NECESARIO EL TR PORQUE EL CARÁCTER DE SEPARACIÓN DE LOS CAMPOS ES LA TRANSICIÓN ESPACIO-NO ESPACIO, YO PENSABA QUE ERA EL ESPACIO EN SI)
+12. ps aux | tr -s ‘ ‘ | cut -f6 -d ‘ ‘
+13. 1. find /etc -type f -printf '%p:%s\n' 2> /dev/null | sort -n -k2,2 -t: DUDA: VER POR QUÉ \n QUITA LAS RUTAS Y DEJA SÓLO EL NOMBRE
+14. 1- obtener lista 2-quitar cabecera 3-cortar a solo la columna de usuarios 4-ordenarla 5-eliminar copias
+    
+    ps aux | tail -n +2 | cut -f1 -d ' ' | sort | uniq
+    
+15. ps aux | tail -n +2 | cut -f1 -d ' ' | sort | uniq -d
+16. ps aux | tail -n +2 | cut -f1 -d ' ' | sort | uniq -d | tr [:lower:] [:upper:]
+17. ps aux | tail -n +2 | cut -f1 -d ' ' | sort | uniq -d | wc -l
